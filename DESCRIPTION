@@ -16,3 +16,9 @@ Imports:
     scuttle,
     SingleCellExperiment,
     SummarizedExperiment
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Suggests: 
+    knitr,
+    testthat
