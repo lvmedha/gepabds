@@ -19,7 +19,3 @@ Imports:
     scuttle,
     SingleCellExperiment,
     SummarizedExperiment
-Suggests:
-    testthat,
-    knitr,
-    rmarkdown
