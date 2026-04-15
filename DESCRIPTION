@@ -1,9 +1,12 @@
 Package: gepabds
-Title: What the Package Does (One Line, Title Case)
+Title: Gene Expression Profiler for Single-Cell RNA-seq Data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Medha", "Vijayanand", , "medha.vijayanand@stjude.org", role = c("aut", "cre"))
+Description: This package provides tools for analyzing and visualizing gene expression in SingleCellExperiment objects using single-cell RNA-seq data. The package
+        supports inquiring about gene sets, computing per-cell-type expression statistics, calculating gene specificity scores using the Gini coefficient, and generating visualizations 
+        that include violin plots and co-expression scatter plots. It also includes functionality to export expression summaries and specificity metrics for downstream analysis or CLI use. 
+        The package is based on the Muraro human pancreatic single-cell RNA-seq dataset.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -16,3 +19,7 @@ Imports:
     scuttle,
     SingleCellExperiment,
     SummarizedExperiment
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
