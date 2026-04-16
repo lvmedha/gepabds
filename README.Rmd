@@ -24,20 +24,20 @@ The goal of gepabds is to provide tools for analyzing and visualizing gene expre
 
 You can install the development version of gepabds from [GitHub](https://github.com/) with:
 
-``` r
+```{r}
 install.packages("remotes")
 remotes::install_github("lvmedha/gepabds")
 ```
+
 
 ```{r example}
 library(gepabds)
 library(SingleCellExperiment)
 
-# load example dataset
 data(example_se)
 
-# genes to explore
-genes <- c("INS", "GCG", "SST", "PRSS1")
+# safe genes
+genes <- rownames(example_se)[1:4]
 
 # 1. Expression statistics
 stats <- compute_expr_stats(example_se, genes)
@@ -47,13 +47,12 @@ head(stats)
 spec <- compute_gene_specificity(example_se, genes)
 spec
 
-# 3. Long-format data for plotting
+# 3. Long-format data
 expr_long <- build_expr_long(example_se, genes)
 
-# 4. Visualizations
+# 4. Plots
 plot_violin(expr_long)
-
-plot_scatter(example_se, "INS", "GCG")
+plot_scatter(example_se, genes[1], genes[2])
 ```
 
 ## Example Data
