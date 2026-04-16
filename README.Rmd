@@ -1,0 +1,61 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# gepabds
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of gepabds is to provide tools for analyzing and visualizing gene expression patterns in single-cell RNA-seq data. It enables per-group expression summaries, gene specificity scoring, and visualization of marker genes using datasets.
+
+## Installation
+
+You can install the development version of gepabds from [GitHub](https://github.com/) with:
+
+``` r
+install.packages("remotes")
+remotes::install_github("lvmedha/gepabds")
+```
+
+```{r example}
+library(gepabds)
+library(SingleCellExperiment)
+
+# load example dataset
+data(example_se)
+
+# genes to explore
+genes <- c("INS", "GCG", "SST", "PRSS1")
+
+# 1. Expression statistics
+stats <- compute_expr_stats(example_se, genes)
+head(stats)
+
+# 2. Gene specificity
+spec <- compute_gene_specificity(example_se, genes)
+spec
+
+# 3. Long-format data for plotting
+expr_long <- build_expr_long(example_se, genes)
+
+# 4. Visualizations
+plot_violin(expr_long)
+
+plot_scatter(example_se, "INS", "GCG")
+```
+
+## Example Data
+
+This package includes a subset of the Muraro human pancreas single-cell RNA-seq dataset (`example_se`) for testing purposes.
