@@ -1,4 +1,4 @@
-#' Build long-format expression data
+#' Building long-format expression data
 #'
 #' @param sce A SingleCellExperiment object
 #' @param genes Character vector of gene names

@@ -1,7 +1,3 @@
-# =========================
-# INTERNAL HELPER
-# =========================
-
 gini <- function(x) {
   x <- sort(x[x >= 0])
   n <- length(x)
@@ -9,11 +5,8 @@ gini <- function(x) {
   2 * sum(seq_along(x) * x) / (n * sum(x)) - (n + 1) / n
 }
 
-# =========================
-# EXPORTED FUNCTIONS
-# =========================
 
-#' Compute per-group expression statistics
+#' Computing per-group expression statistics
 #'
 #' @param sce SingleCellExperiment object
 #' @param genes character vector of genes
@@ -56,7 +49,7 @@ compute_expr_stats <- function(sce, genes) {
   do.call(rbind, out)
 }
 
-#' Compute gene specificity (Gini score)
+#' Computing gene specificity (Gini score)
 #'
 #' @param sce SingleCellExperiment object
 #' @param genes character vector of genes

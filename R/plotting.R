@@ -17,7 +17,7 @@ plot_violin <- function(expr_long) {
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45))
 }
 
-#' Scatter plot between two genes
+#' Scatter plot between genes
 #'
 #' @param sce SingleCellExperiment object
 #' @param gene_a First gene
