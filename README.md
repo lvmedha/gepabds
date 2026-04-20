@@ -4,7 +4,8 @@
 # gepabds
 
 <!-- badges: start -->
-
+[![R-CMD-check](https://github.com/lvmedha/gepabds/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lvmedha/gepabds/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/lvmedha/gepabds/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/lvmedha/gepabds/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
 The goal of gepabds is to provide tools for analyzing and visualizing
