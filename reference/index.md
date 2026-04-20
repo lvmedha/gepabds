@@ -14,3 +14,5 @@
   : Scatter plot between genes
 - [`plot_violin()`](https://lvmedha.github.io/gepabds/reference/plot_violin.md)
   : Violin plot of gene expression
+- [`save_expr_stats()`](https://lvmedha.github.io/gepabds/reference/save_expr_stats.md)
+  : Save expression statistics to a file
