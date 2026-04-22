@@ -7,41 +7,33 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
 
-```{r setup}
 library(gepabds)
 library(SummarizedExperiment)
-
 ```
 
-## Introduction
+Introduction 
 
-The gepabds package provides tools for analyzing gene expression data stored in SummarizedExperiment objects. 
+The gepabds package provides tools for analyzing gene expression data stored in SummarizedExperiment objects.
 
 This vignette shows how to compute expression statistics for selected genes.
 
 
----
-
-## Load Example Data
-
 ```{r}
+
+#load data
 data(example_se)
 
 example_se
 ```
 
-
-
-# Explore the Data
-
 ```{r}
+#exploredata
 # View gene names
 rownames(example_se)
 
@@ -49,26 +41,20 @@ rownames(example_se)
 colData(example_se)
 ```
 
-
-
-# Select the genes of interest
-
 ```{r}
+#genesofinterest
 genes_to_use <- rownames(example_se)[1:5]
 genes_to_use
 ```
 
 
-#Compute Expression Statistics
-
 ```{r}
+
+#computeexpressionstatistics
 
 result <- compute_expr_stats(example_se, genes = genes_to_use)
 
 result
 ```
-
-
-
 
 
