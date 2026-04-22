@@ -112,14 +112,10 @@ RNA-seq dataset (`example_se`) for testing purposes.
 
 ## CLI Usage
 
-You can run the package from the command line:
+Run the CLI from the terminal:
 
-``` bash
-Rscript inst/scripts/run_gepabds.R CHST3 UGT2B15
-```
-
-This generates a scatter plot comparing two genes using the example
-dataset.
+\`\`\`bash Rscript inst/scripts/run_gepabds.R data/test/example_se.rds
+results/scatter.png CHST3 UGT2B15
 
 # Package index
 
