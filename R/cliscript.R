@@ -1,26 +1,28 @@
-dir.create("inst/scripts", recursive = TRUE, showWarnings = FALSE)
-
-writeLines(
-  '#!/usr/bin/env Rscript
+#!/usr/bin/env Rscript
 
 args <- commandArgs(trailingOnly = TRUE)
 
-if (length(args) < 2) {
-  stop("Usage: run_gepabds.R <gene1> <gene2>")
+# ONLY run CLI if executed directly
+if (length(args) > 0 && !interactive()) {
+
+  if (length(args) < 4) {
+    stop("Usage: run_gepabds.R <input.rds> <output.png> <gene1> <gene2>")
+  }
+
+  input_file <- args[1]
+  output_file <- args[2]
+  gene1 <- args[3]
+  gene2 <- args[4]
+
+  library(gepabds)
+
+  example_se <- readRDS(input_file)
+
+  png(output_file, width = 800, height = 600)
+
+  t_scatter(example_se, gene1, gene2)
+
+  dev.off()
+
+  message("Saved plot to: ", output_file)
 }
-
-gene1 <- args[1]
-gene2 <- args[2]
-
-library(gepabds)
-
-data(example_se)
-
-t_scatter(example_se, gene1, gene2)
-
-message("Done: ", gene1, " vs ", gene2)
-',
-"inst/scripts/run_gepabds.R"
-)
-
-Sys.chmod("inst/scripts/run_gepabds.R", mode = "0755")

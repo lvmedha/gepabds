@@ -60,3 +60,10 @@ plot_scatter(example_se, genes[1], genes[2])
 ## Example Data
 
 This package includes a subset of the Muraro human pancreas single-cell RNA-seq dataset (`example_se`) for testing purposes.
+
+## CLI Usage
+
+Run the CLI from the terminal:
+
+```bash
+Rscript inst/scripts/run_gepabds.R data/test/example_se.rds results/scatter.png CHST3 UGT2B15
