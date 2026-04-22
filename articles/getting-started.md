@@ -1,80 +1,6 @@
 # Getting Started with gepabds
 
-``` r
-library(gepabds)
-library(SummarizedExperiment)
-#> Loading required package: MatrixGenerics
-#> Loading required package: matrixStats
-#> 
-#> Attaching package: 'MatrixGenerics'
-#> The following objects are masked from 'package:matrixStats':
-#> 
-#>     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
-#>     colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
-#>     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
-#>     colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
-#>     colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
-#>     colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
-#>     colWeightedMeans, colWeightedMedians, colWeightedSds,
-#>     colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
-#>     rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
-#>     rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
-#>     rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
-#>     rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
-#>     rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
-#>     rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
-#>     rowWeightedSds, rowWeightedVars
-#> Loading required package: GenomicRanges
-#> Loading required package: stats4
-#> Loading required package: BiocGenerics
-#> Loading required package: generics
-#> 
-#> Attaching package: 'generics'
-#> The following objects are masked from 'package:base':
-#> 
-#>     as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
-#>     setequal, union
-#> 
-#> Attaching package: 'BiocGenerics'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     IQR, mad, sd, var, xtabs
-#> The following objects are masked from 'package:base':
-#> 
-#>     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
-#>     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
-#>     get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
-#>     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-#>     rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
-#>     unsplit, which.max, which.min
-#> Loading required package: S4Vectors
-#> 
-#> Attaching package: 'S4Vectors'
-#> The following object is masked from 'package:utils':
-#> 
-#>     findMatches
-#> The following objects are masked from 'package:base':
-#> 
-#>     expand.grid, I, unname
-#> Loading required package: IRanges
-#> Loading required package: Seqinfo
-#> Loading required package: Biobase
-#> Welcome to Bioconductor
-#> 
-#>     Vignettes contain introductory material; view with
-#>     'browseVignettes()'. To cite Bioconductor, see
-#>     'citation("Biobase")', and for packages 'citation("pkgname")'.
-#> 
-#> Attaching package: 'Biobase'
-#> The following object is masked from 'package:MatrixGenerics':
-#> 
-#>     rowMedians
-#> The following objects are masked from 'package:matrixStats':
-#> 
-#>     anyMissing, rowMedians
-```
-
-### Introduction
+Introduction
 
 The gepabds package provides tools for analyzing gene expression data
 stored in SummarizedExperiment objects.
@@ -82,11 +8,9 @@ stored in SummarizedExperiment objects.
 This vignette shows how to compute expression statistics for selected
 genes.
 
-------------------------------------------------------------------------
-
-### Load Example Data
-
 ``` r
+
+#load data
 data(example_se)
 
 example_se
@@ -103,9 +27,8 @@ example_se
 #> altExpNames(1): ERCC
 ```
 
-## Explore the Data
-
 ``` r
+#exploredata
 # View gene names
 rownames(example_se)
 #>   [1] "KBTBD4"         "ZNF423"         "CCDC74A"        "TBX19"         
@@ -177,17 +100,16 @@ colData(example_se)
 #> D31-3_64      acinar         D31        3   2.222911
 ```
 
-## Select the genes of interest
-
 ``` r
+#genesofinterest
 genes_to_use <- rownames(example_se)[1:5]
 genes_to_use
 #> [1] "KBTBD4"  "ZNF423"  "CCDC74A" "TBX19"   "ORAI3"
 ```
 
-\#Compute Expression Statistics
-
 ``` r
+
+#computeexpressionstatistics
 
 result <- compute_expr_stats(example_se, genes = genes_to_use)
 
