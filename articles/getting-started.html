@@ -69,6 +69,7 @@
 stored in SummarizedExperiment objects.</p>
 <p>This vignette shows how to compute expression statistics for selected
 genes.</p>
+<p>Loading the Data:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">#load data</span></span>
@@ -86,8 +87,9 @@ genes.</p>
 <span><span class="co">#&gt; reducedDimNames(0):</span></span>
 <span><span class="co">#&gt; mainExpName: endogenous</span></span>
 <span><span class="co">#&gt; altExpNames(1): ERCC</span></span></code></pre></div>
+<p>Exploring the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#exploredata</span></span>
+<code class="sourceCode R"><span><span class="co">#Explore data</span></span>
 <span><span class="co"># View gene names</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">example_se</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   [1] "KBTBD4"         "ZNF423"         "CCDC74A"        "TBX19"         </span></span>
@@ -157,14 +159,27 @@ genes.</p>
 <span><span class="co">#&gt; D31-7_47        beta         D31        7   0.688036</span></span>
 <span><span class="co">#&gt; D31-1_87       alpha         D31        1   1.196185</span></span>
 <span><span class="co">#&gt; D31-3_64      acinar         D31        3   2.222911</span></span></code></pre></div>
+<p>Genes of interest</p>
+<p>This step selects a small subset of genes from the dataset to
+demonstrate downstream analysis.</p>
+<p>In real analyses, genes of interest are typically selected based on
+biological relevance or statistical criteria, such as:</p>
+<p>high mean expression across samples high variability between
+conditions known involvement in a pathway or disease process</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#genesofinterest</span></span>
+<code class="sourceCode R"><span><span class="co">#genes of interest</span></span>
 <span><span class="va">genes_to_use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">example_se</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="va">genes_to_use</span></span>
 <span><span class="co">#&gt; [1] "KBTBD4"  "ZNF423"  "CCDC74A" "TBX19"   "ORAI3"</span></span></code></pre></div>
+<p>Computing Expression Stats</p>
+<p>This function calculates summary statistics for each gene, including:
+- mean expression across samples - variance (how variable expression is)
+- optionally filtered results for selected genes</p>
+<p>These metrics help prioritize genes that are biologically
+informative.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="co">#computeexpressionstatistics</span></span>
+<span><span class="co">#compute expression statistics</span></span>
 <span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute_expr_stats.html">compute_expr_stats</a></span><span class="op">(</span><span class="va">example_se</span>, genes <span class="op">=</span> <span class="va">genes_to_use</span><span class="op">)</span></span>
 <span></span>
@@ -210,6 +225,13 @@ genes.</p>
 <span><span class="co">#&gt; 38   ORAI3 endothelial 0.3178523   0.3178523      0.5000000       2</span></span>
 <span><span class="co">#&gt; 39   ORAI3       delta 0.0000000   0.0000000      0.0000000       1</span></span>
 <span><span class="co">#&gt; 40   ORAI3        duct 0.0000000   0.0000000      0.0000000       2</span></span></code></pre></div>
+<p>Interpreting the results:</p>
+<p>Each row corresponds to a gene. Genes with higher mean expression are
+more abundant across samples, while higher variance suggests
+condition-specific regulation.</p>
+<p>In downstream analyses, we often focus on genes that are both highly
+expressed and variable, as these are more likely to be biologically
+meaningful.</p>
   </main>
 </div>
 

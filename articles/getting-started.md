@@ -8,6 +8,8 @@ stored in SummarizedExperiment objects.
 This vignette shows how to compute expression statistics for selected
 genes.
 
+Loading the Data:
+
 ``` r
 
 #load data
@@ -27,8 +29,10 @@ example_se
 #> altExpNames(1): ERCC
 ```
 
+Exploring the data:
+
 ``` r
-#exploredata
+#Explore data
 # View gene names
 rownames(example_se)
 #>   [1] "KBTBD4"         "ZNF423"         "CCDC74A"        "TBX19"         
@@ -100,16 +104,35 @@ colData(example_se)
 #> D31-3_64      acinar         D31        3   2.222911
 ```
 
+Genes of interest
+
+This step selects a small subset of genes from the dataset to
+demonstrate downstream analysis.
+
+In real analyses, genes of interest are typically selected based on
+biological relevance or statistical criteria, such as:
+
+high mean expression across samples high variability between conditions
+known involvement in a pathway or disease process
+
 ``` r
-#genesofinterest
+#genes of interest
 genes_to_use <- rownames(example_se)[1:5]
 genes_to_use
 #> [1] "KBTBD4"  "ZNF423"  "CCDC74A" "TBX19"   "ORAI3"
 ```
 
+Computing Expression Stats
+
+This function calculates summary statistics for each gene, including: -
+mean expression across samples - variance (how variable expression is) -
+optionally filtered results for selected genes
+
+These metrics help prioritize genes that are biologically informative.
+
 ``` r
 
-#computeexpressionstatistics
+#compute expression statistics
 
 result <- compute_expr_stats(example_se, genes = genes_to_use)
 
@@ -156,3 +179,13 @@ result
 #> 39   ORAI3       delta 0.0000000   0.0000000      0.0000000       1
 #> 40   ORAI3        duct 0.0000000   0.0000000      0.0000000       2
 ```
+
+Interpreting the results:
+
+Each row corresponds to a gene. Genes with higher mean expression are
+more abundant across samples, while higher variance suggests
+condition-specific regulation.
+
+In downstream analyses, we often focus on genes that are both highly
+expressed and variable, as these are more likely to be biologically
+meaningful.
