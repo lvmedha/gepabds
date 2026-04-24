@@ -112,7 +112,28 @@ RNA-seq dataset (`example_se`) for testing purposes.
 
 ## CLI Usage
 
-Run the CLI from the terminal:
+CLI Usage Installation
 
-\`\`\`bash Rscript inst/scripts/run_gepabds.R data/test/example_se.rds
-results/scatter.png CHST3 UGT2B15
+Before using the command-line interface, install the CLI launcher:
+`{r} Rapp::install_pkg_cli_apps("gepabds")`
+
+Run the CLI
+
+Once installed, run the scatter plot tool:
+
+gepabds scatter  
+–input data/example_se.rda  
+–output results/scatter.png  
+–gene1 CHST3  
+–gene2 UGT2B15
+
+Help
+
+gepabds –help gepabds scatter –help
+
+Output
+
+The CLI generates:
+
+A scatter plot comparing expression between two genes The plot is saved
+to the path specified in –output
