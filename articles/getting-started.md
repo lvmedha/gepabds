@@ -12,7 +12,7 @@ Loading the Data:
 
 ``` r
 
-#load data
+# load data
 data(example_se)
 
 example_se
@@ -32,7 +32,7 @@ example_se
 Exploring the data:
 
 ``` r
-#Explore data
+# Explore data
 # View gene names
 rownames(example_se)
 #>   [1] "KBTBD4"         "ZNF423"         "CCDC74A"        "TBX19"         
@@ -116,7 +116,7 @@ high mean expression across samples high variability between conditions
 known involvement in a pathway or disease process
 
 ``` r
-#genes of interest
+# genes of interest
 genes_to_use <- rownames(example_se)[1:5]
 genes_to_use
 #> [1] "KBTBD4"  "ZNF423"  "CCDC74A" "TBX19"   "ORAI3"
@@ -132,7 +132,7 @@ These metrics help prioritize genes that are biologically informative.
 
 ``` r
 
-#compute expression statistics
+# compute expression statistics
 
 result <- compute_expr_stats(example_se, genes = genes_to_use)
 
