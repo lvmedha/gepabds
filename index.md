@@ -127,10 +127,6 @@ gepabds scatter
 –gene1 CHST3  
 –gene2 UGT2B15
 
-Help
-
-gepabds –help gepabds scatter –help
-
 Output
 
 The CLI generates:
