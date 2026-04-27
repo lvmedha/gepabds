@@ -7,41 +7,36 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
 
-```{r setup}
 library(gepabds)
 library(SummarizedExperiment)
-
 ```
 
-## Introduction
+Introduction 
 
-The gepabds package provides tools for analyzing gene expression data stored in SummarizedExperiment objects. 
+The gepabds package provides tools for analyzing gene expression data stored in SummarizedExperiment objects.
 
 This vignette shows how to compute expression statistics for selected genes.
 
-
----
-
-## Load Example Data
+Loading the Data:
 
 ```{r}
+
+# load data
 data(example_se)
 
 example_se
 ```
 
-
-
-# Explore the Data
+Exploring the data:
 
 ```{r}
+# Explore data
 # View gene names
 rownames(example_se)
 
@@ -49,26 +44,45 @@ rownames(example_se)
 colData(example_se)
 ```
 
+Genes of interest
 
+This step selects a small subset of genes from the dataset to demonstrate downstream analysis.
 
-# Select the genes of interest
+ In real analyses, genes of interest are typically selected based on biological relevance or statistical criteria, such as:
+
+high mean expression across samples
+high variability between conditions
+known involvement in a pathway or disease process
 
 ```{r}
+# genes of interest
 genes_to_use <- rownames(example_se)[1:5]
 genes_to_use
 ```
 
 
-#Compute Expression Statistics
+Computing Expression Stats
+
+This function calculates summary statistics for each gene, including:
+- mean expression across samples
+- variance (how variable expression is)
+- optionally filtered results for selected genes
+
+These metrics help prioritize genes that are biologically informative.
 
 ```{r}
+
+# compute expression statistics
 
 result <- compute_expr_stats(example_se, genes = genes_to_use)
 
 result
 ```
 
+Interpreting the results:
 
+Each row corresponds to a gene. Genes with higher mean expression are more 
+abundant across samples, while higher variance suggests condition-specific regulation.
 
-
-
+In downstream analyses, we often focus on genes that are both highly expressed 
+and variable, as these are more likely to be biologically meaningful.

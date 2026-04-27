@@ -60,3 +60,38 @@ plot_scatter(example_se, genes[1], genes[2])
 ## Example Data
 
 This package includes a subset of the Muraro human pancreas single-cell RNA-seq dataset (`example_se`) for testing purposes.
+
+## CLI Usage
+
+CLI Usage
+Installation
+
+Before using the command-line interface, install the CLI launcher:
+```{r}
+Rapp::install_pkg_cli_apps("gepabds")
+```
+
+Run the CLI
+
+Once installed, run the scatter plot tool:
+
+gepabds scatter \
+  --input data/example_se.rda \
+  --output results/scatter.png \
+  --gene1 CHST3 \
+  --gene2 UGT2B15
+  
+Help:
+
+For help, run
+
+gepabds --help
+gepabds scatter --help
+
+
+Output
+
+The CLI generates:
+
+A scatter plot comparing expression between two genes
+The plot is saved to the path specified in --output

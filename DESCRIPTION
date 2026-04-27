@@ -15,6 +15,7 @@ URL: https://github.com/lvmedha/gepabds, https://lvmedha.github.io/gepabds/
 BugReports: https://github.com/lvmedha/gepabds/issues
 Imports: 
     ggplot2,
+    Rapp,
     scRNAseq,
     scuttle,
     SingleCellExperiment,
