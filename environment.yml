@@ -1,0 +1,12 @@
+name: abdsproject
+channels:
+  - defaults
+dependencies:
+  - r-base
+  - r-ggplot2
+  - bioconductor-scrnaseq
+  - bioconductor-summarizedexperiment
+  - bioconductor-scuttle
+  - bioconductor-singlecellexperiment
+  - r-devtools
+prefix: /home/medha-vijayanand/miniconda3/envs/abdsproject
