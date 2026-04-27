@@ -1,6 +1,6 @@
 process geneprofile {
 
-    container "hw2-test"   
+    container "hw2-test:0.0.1"   
 
     input:
     path input_file

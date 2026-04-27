@@ -1,2 +1,7 @@
+# Nextflow runtime (never commit)
 .nextflow/
 .nextflow.log*
+work/
+
+# Pipeline outputs (regenerate with `nextflow run`)
+results/

@@ -8,3 +8,6 @@ docs
 inst/doc
 .nextflow*
 
+# Nextflow process work dirs (scratch; do not commit)
+work/
+

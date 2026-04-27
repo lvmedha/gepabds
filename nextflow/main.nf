@@ -5,7 +5,7 @@ nextflow.enable.dsl=2
 /*
  * Pipeline parameters
  */
-params.input = "data/example_se.rda"
+params.input = "../r-package/data/example_se.rda"
 params.outdir = 'results'
 
 /*
