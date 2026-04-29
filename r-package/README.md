@@ -193,3 +193,13 @@ nextflow run nextflow/main.nf -profile docker
 
 nextflow clean -f
 nextflow run nextflow/main.nf -profile docker -resume false
+
+## 3. Nextflow Workflow
+
+##This pipeline uses two connected processes:
+
+## prepare 
+   Takes the input `.rda` file and prepares it for downstream analysis.
+
+## geneprofile
+   Generates a scatter plot of gene expression using the processed data.
