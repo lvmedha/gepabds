@@ -152,3 +152,44 @@ The CLI generates:
 
 A scatter plot comparing expression between two genes
 The plot is saved to the path specified in --output
+
+## Reproducibility
+
+This project can be reproduced using Conda, Docker, or Nextflow.
+
+---
+
+## 1. Conda Environment Setup
+
+To recreate the Conda environment:
+
+```bash
+conda env create -f environment.yml
+conda activate gepabds
+
+## Docker Setup
+##Build the Docker image
+
+##From the r-package/ directory:
+
+docker build -t gepabds .
+##Run the Docker container
+
+##Interactive session:
+
+docker run -it gepabds
+
+##Or run R inside the container:
+
+docker run -it gepabds R
+
+##Nextflow Workflow
+
+##From the repository root directory, run:
+
+nextflow run nextflow/main.nf -profile docker
+
+##If you need to reset and rerun:
+
+nextflow clean -f
+nextflow run nextflow/main.nf -profile docker -resume false
